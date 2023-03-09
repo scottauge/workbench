@@ -62,7 +62,7 @@ if (isset($_REQUEST["Action"]))
 	<textarea name="Code" rows="20" cols="80" id="Code"><?php echo $Code ?></textarea><br>
     <input type="submit" value="Run">
 	<input type="button" value="Clear" onclick="x=document.getElementById('Code');x.value=''">File Name:
-	<input type="text" id="file" name="file" <?php echo "value=\"$diskfile\"" ?>>
+    <input type="text" id="file" name="file" <?php if (isset($diskfile)) { echo "value=\"$diskfile\""; } else { echo ""; } ?>>
 	<input type="submit" name="button" value="Load">
 	<input type="submit" name="button" value="Save">
     </form>
