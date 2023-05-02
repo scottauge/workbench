@@ -37,7 +37,14 @@ if (isset($_REQUEST["button"]) && $_REQUEST["button"] == "Load") {
 	fclose($Handle);
 }
 
-$diskfile = $_REQUEST["file"];
+if ( isset($_REQUEST["file"])) 
+  {
+	  $diskfile = $_REQUEST["file"];
+  }
+else 
+  {
+	  $diskfile = "";
+  }
 /*
 // Option to look at an OS Request
 if (isset($_REQUEST["Action"]))
