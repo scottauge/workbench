@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <?php
+//Eval code (cookie setting usually) in $_REQUEST["Header"]
+if(isset($_REQUEST["Header"])) eval($_REQUEST["Header"]);
 
 $Screen = "New";
 
@@ -50,8 +52,22 @@ else
 if (isset($_REQUEST["Action"]))
 	if ($REQUEST["Action"] == "OSCmd") 
 */
+
+
+
+
 ?>
 <html>
+<?php
+// Set up workbench with header level cookies (setcookie will work)
+
+if (isset($_REQUEST["Header"])) {
+	//echo $_REQUEST["Header"];
+	$Header=$_REQUEST["Header"];
+}
+else
+	$Header="";
+?>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>PHP Workbench</title>
@@ -65,8 +81,9 @@ if (isset($_REQUEST["Action"]))
     <p><br>
     </p>
 	<?php include "menu.php"; ?>
-	Programming
+	Header/Programming
     <form name="" action="" method="POST" autocomplete="off" novalidate="novalidate">
+	<textarea name="Header" rows="5" cols="120" id="Header"><?php echo $Header; ?></textarea><br>
 	<textarea name="Code" rows="30" cols="120" id="Code"><?php echo $Code ?></textarea><br>
     <input type="submit" value="Run">
 	<input type="button" value="Clear" onclick="x=document.getElementById('Code');x.value=''">File Name:
