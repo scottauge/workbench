@@ -14,13 +14,12 @@ if (isset($_REQUEST["Code"])) {
 }
 else {
 	$Code = "";
-    $Screen="New";
+  $Screen = "New";
 }
  
 // Save
 
 if (isset($_REQUEST["button"]) && $_REQUEST["button"] == "Save") {
-	//echo $_REQUEST["button"];
 	$diskfile = $_REQUEST["file"];
 	echo "Writing file " . $diskfile;
 	$Handle=fopen($diskfile, "w");
@@ -31,7 +30,6 @@ if (isset($_REQUEST["button"]) && $_REQUEST["button"] == "Save") {
 // Load
 
 if (isset($_REQUEST["button"]) && $_REQUEST["button"] == "Load") {
-	//echo $_REQUEST["button"];
 	$diskfile = $_REQUEST["file"];
 	echo "Reading file " . $diskfile;
 	$Handle=fopen($diskfile, "rb");
@@ -52,10 +50,6 @@ else
 if (isset($_REQUEST["Action"]))
 	if ($REQUEST["Action"] == "OSCmd") 
 */
-
-
-
-
 ?>
 <html>
 <?php
@@ -84,7 +78,7 @@ else
 	Header/Programming
     <form name="" action="" method="POST" autocomplete="off" novalidate="novalidate">
 	<textarea name="Header" rows="5" cols="120" id="Header"><?php echo $Header; ?></textarea><br>
-	<textarea name="Code" rows="30" cols="120" id="Code"><?php echo $Code ?></textarea><br>
+	<textarea name="Code" rows="30" cols="120" id="Code"><?php echo $Code; ?></textarea><br>
     <input type="submit" value="Run">
 	<input type="button" value="Clear" onclick="x=document.getElementById('Code');x.value=''">File Name:
     <input type="text" id="file" name="file" <?php if (isset($diskfile)) { echo "value=\"$diskfile\""; } else { echo ""; } ?>>
@@ -93,6 +87,7 @@ else
     </form>
     <p><br>
     </p>
+    <u>Evaluating</u><br><br>
     <?php 
     if (isset($Code)) eval($Code);
     ?>
