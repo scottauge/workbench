@@ -37,6 +37,7 @@ if (isset($_REQUEST["button"]) && $_REQUEST["button"] == "Load") {
 	fclose($Handle);
 }
 
+
 if ( isset($_REQUEST["file"])) 
   {
 	  $diskfile = $_REQUEST["file"];
@@ -82,7 +83,8 @@ else
     <input type="submit" value="Run">
 	<input type="button" value="Clear" onclick="x=document.getElementById('Code');x.value=''">File Name:
     <input type="text" id="file" name="file" <?php if (isset($diskfile)) { echo "value=\"$diskfile\""; } else { echo ""; } ?>>
-	<input type="submit" name="button" value="Load">
+	<input type="submit" name="button" value="Browser" onclick="window.open('browser.php', 'browser', 'popup=true,width=350,height=400')">
+  <input type="submit" name="button" value="Load">
 	<input type="submit" name="button" value="Save">
     </form>
     <p><br>
